@@ -1,0 +1,19 @@
+{
+  "name": "look-at-space",
+  "version": "1.0.0",
+  "description": "SPA - com informações sobre o universo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solangealmn/look-at-space.git"
+  },
+  "author": "Solange Nalão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solangealmn/look-at-space/issues"
+  },
+  "homepage": "https://github.com/solangealmn/look-at-space#readme"
+}
