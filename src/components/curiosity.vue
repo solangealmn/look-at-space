@@ -53,22 +53,16 @@ $(document).ready( ()=> {
       console.log(dropMenu)
       return dropMenu;
     }
-    $('#find-photos').bind('click', (dropMenu) => {
+    function displayPhotos(title, image, date) {
       event.preventDefault();
-      $("#mars-info").appendTo(`<p>olaaa</p>`);
-    });
-    //
-    // function displayPhotos(title, image, date) {
-    //   let template = [];
-    //
-    //   $("#mars-info").appendTo(`
-    //     <h2>Number Sum ${title}</h2>
-    //     <figure class="figure">
-    //       <img src="${image}" class="figure-img img-fluid rounded">
-    //       <figcaption class="figure-caption text-center">${date}</figcaption>
-    //     </figure>`);
-    //     console.log(eachItem.sol)
-    // }
+      $( "#mars-info" ).append(`
+        <h2>Number Sum ${title}</h2>
+        <figure class="figure">
+          <img src="${image}" class="figure-img img-fluid rounded">
+          <figcaption class="figure-caption text-center">${date}</figcaption>
+        </figure>`);
+    }
+
 
 
   function getApiData() {
@@ -83,15 +77,9 @@ function getMarsInfo(data) {
  _.map(data, function(item) {
    _.map(item, function(eachItem){
      popDropdown(eachItem.camera.full_name);
-     // $('#find-photos').bind('click', () => {
-     //   event.preventDefault();
-     //   $("#mars-info").appendTo(`<p>olaaa</p>`);
-     // });
-
-     // console.log(eachItem.img_src)
-     // console.log(eachItem.sol)
-     // console.log(eachItem.earth_date)
-     // console.log(eachItem.camera.full_name)
+     $( "#find-photos" ).click( () =>{
+       displayPhotos(eachItem.sol, eachItem.img_src, eachItem.earth_date);
+     })
    })
  })
 }
