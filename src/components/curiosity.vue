@@ -48,13 +48,11 @@ a {
 
 $(document).ready( ()=> {
 
+
     function popDropdown(camName){
-      let dropMenu = $('#choose-camera').append(`<option value="${camName}">${camName}</option>`).val();
-      console.log(dropMenu)
-      return dropMenu;
+      return $('#choose-camera').append(`<option value="${camName}">${camName}</option>`)
     }
     function displayPhotos(title, image, date) {
-      event.preventDefault();
       $( "#mars-info" ).append(`
         <h2>Number Sum ${title}</h2>
         <figure class="figure">
@@ -63,14 +61,11 @@ $(document).ready( ()=> {
         </figure>`);
     }
 
-
-
-  function getApiData() {
-   return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=4wUfxFTephUQ7HdFwRCpe2FvH4ElW9ZnbA4plSyB")
-   // return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&&api_key=DEMO_KEY")
-   .then(response => response.json())
-   .then(json => getMarsInfo(json))
- }
+    function getApiData() {
+     return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=4wUfxFTephUQ7HdFwRCpe2FvH4ElW9ZnbA4plSyB")
+     .then(response => response.json())
+     .then(json => getMarsInfo(json))
+   }
 
 function getMarsInfo(data) {
 // console.log(data);
@@ -78,11 +73,15 @@ function getMarsInfo(data) {
    _.map(item, function(eachItem){
      popDropdown(eachItem.camera.full_name);
      $( "#find-photos" ).click( () =>{
-       displayPhotos(eachItem.sol, eachItem.img_src, eachItem.earth_date);
+       var camera = $('#choose-camera').val();
+       if(camera === eachItem.camera.full_name){
+         displayPhotos(eachItem.sol, eachItem.img_src, eachItem.earth_date);
+       }
      })
    })
  })
 }
+
 getMarsInfo();
 getApiData();
 
