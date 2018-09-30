@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
-            <img src="./assets/telescope.svg" width="60" alt=""><span class="text-yellow p-3">Look at Space</span>
+            <img src="./assets/lookatspace.svg" width="130" alt="look at space">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,8 +35,11 @@
 *{
   font-family: 'Scada', sans-serif;
 }
-.text-yellow {
-  color:#ffa815;
+.router{
+  color: #FFFFFF;
+}
+.router:hover{
+  color: #FCCB3F;
 }
 </style>
 <script>

@@ -6,13 +6,12 @@
           <div class="row">
             <div class="col-12">
               <div class="jumbotron">
-                <h1 class="display-2" id="apod_title"></h1>
+                <h1 class="display-2" id="apod-title"></h1>
                 <figure class="figure">
-                  <img id="apod_img_id" class="figure-img img-fluid rounded">
+                  <img id="apod-img-id" class="figure-img img-fluid rounded">
                   <figcaption id="copyright" class="figure-caption text-center"></figcaption>
                 </figure>
-                <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="0"></iframe>
-                <p id="apod_explaination" class="lead"></p>
+                <p id="apod-explaination" class="lead"></p>
               </div>
             </div>
           </div>
@@ -47,30 +46,27 @@ img {
 
 <script>
 $(document).ready( ()=> {
-const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
+const url = "https://api.nasa.gov/planetary/apod?api_key=4wUfxFTephUQ7HdFwRCpe2FvH4ElW9ZnbA4plSyB";
 
 
 $.ajax({
   url: url,
-  success: function(result){
-  if("copyright" in result) {
-    $("#copyright").text("Image Credits: " + result.copyright);
+  success: function(data){
+  if("copyright" in data) {
+    $("#copyright").text("Image Credits: " + data.copyright);
   }
   else {
     $("#copyright").text("Image Credits: " + "Public Domain");
   }
 
-  if(result.media_type == "video") {
-    $("#apod_img_id").css("display", "none");
-    $("#apod_vid_id").attr("src", result.url);
+  if(data.media_type == "video") {
+    $("#apod-img-id").css("display", "none");
   }
   else {
-    $("#apod_vid_id").css("display", "none");
-    $("#apod_img_id").attr("src", result.url);
+    $("#apod-img-id").attr("src", data.url);
   }
-  $("#reqObject").text(url);
-  $("#apod_explaination").text(result.explanation);
-  $("#apod_title").text(result.title);
+  $("#apod-explaination").text(data.explanation);
+  $("#apod-title").text(data.title);
 }
 });
 });
