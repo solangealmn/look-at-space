@@ -64,7 +64,7 @@ $(document).ready( ()=> {
         return cameras;
     }
     function displayPhotos(title, image, date){
-      $( "#mars-info" ).append(`
+      $( "#mars-info" ).html(`
         <h2>Number Sum ${title}</h2>
         <figure class="figure">
           <img src="${image}" class="figure-img img-fluid rounded">
