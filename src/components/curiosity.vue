@@ -8,11 +8,11 @@
               <form>
                 <div class="form-group">
                   <label for="choose-camera">Choose Camera</label>
-                  <select id="choose-camera" class="custom-select">
+                  <select id="choose-camera" class="custom-select" placeholder="Choose Camera">
 
                   </select>
                   </div>
-                  <button id="find-photos" class="btn btn-warning" type="submit">Find Photos</button>
+                  <button id="find-photos" class="btn btn-block btn-warning mb-3" type="submit">Find Photos</button>
                 </form>
             </div>
             <div id="mars-info" class="col-12 col-sm-9">
@@ -50,9 +50,20 @@ $(document).ready( ()=> {
 
 
     function popDropdown(camName){
-      return $('#choose-camera').append(`<option value="${camName}">${camName}</option>`)
+      $('#choose-camera').append(`
+        <option class="camOption" value="" active>Choose Camera</option>
+        <option class="camOption" value="${camName}">${camName}</option>`);
+      var cameras =[];
+        $('.camOption').each(function(){
+           if($.inArray(this.value, cameras) >-1){
+              $(this).remove()
+           }else{
+              cameras.push(this.value);
+           }
+        });
+        return cameras;
     }
-    function displayPhotos(title, image, date) {
+    function displayPhotos(title, image, date){
       $( "#mars-info" ).append(`
         <h2>Number Sum ${title}</h2>
         <figure class="figure">
@@ -78,6 +89,7 @@ function getMarsInfo(data) {
          displayPhotos(eachItem.sol, eachItem.img_src, eachItem.earth_date);
        }
      })
+
    })
  })
 }

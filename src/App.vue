@@ -3,7 +3,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="/home">
+          <a class="navbar-brand" href="/">
             <img src="./assets/lookatspace.svg" width="130" alt="look at space">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <router-link class="nav-link" to="/home">Home</router-link>
+                <router-link class="nav-link" to="/">Home</router-link>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" to="/curiosity">Mars Rover Photos</router-link>
